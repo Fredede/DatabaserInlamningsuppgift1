@@ -45,7 +45,7 @@ namespace DatabaserInlamningsuppgift1
                 lboContacts.Items.Clear();
                 foreach (var contact in db.Contact)
                 {
-                    lboContacts.Items.Add(contact.Name);
+                    lboContacts.Items.Add(contact);
                 }
             }
         }
@@ -54,15 +54,15 @@ namespace DatabaserInlamningsuppgift1
         {
             using (var db = new ContactList())
             {
-                var c = ((Contact)lboContacts.SelectedItem);
-                txtName.Text = c.Name;
-                txtStreetAddress.Text = c.Address;
-                txtZipCode.Text = c.ZipCode;
-                txtCity.Text = c.City;
-                txtPhone.Text = c.Phone;
-                txtEmail.Text = c.Email;
-                dtpDateOfBirth.Value = c.Birthday;
-                //MessageBox.Show(c.Name + "\n" + c.Address + "\n" + c.ZipCode + "\n" + c.City + "\n" + c.Phone + "\n" +  c.Email + "\n" + c.Birthday);           
+                    var c = ((Contact)lboContacts.SelectedItem);
+                    txtName.Text = c.Name;
+                    txtStreetAddress.Text = c.Address;
+                    txtZipCode.Text = c.ZipCode;
+                    txtCity.Text = c.City;
+                    txtPhone.Text = c.Phone;
+                    txtEmail.Text = c.Email;
+                    dtpDateOfBirth.Value = c.Birthday;
+                    //MessageBox.Show(c.Name + "\n" + c.Address + "\n" + c.ZipCode + "\n" + c.City + "\n" + c.Phone + "\n" +  c.Email + "\n" + c.Birthday);    
             }
         }
 
