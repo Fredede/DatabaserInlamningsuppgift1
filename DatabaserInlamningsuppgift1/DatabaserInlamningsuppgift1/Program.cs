@@ -17,6 +17,18 @@ namespace DatabaserInlamningsuppgift1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            //using (var db = new ContactList())
+            //{
+                //db.Contact.Add(new Contact { Name = "First Name1" });
+                //db.SaveChanges();
+
+                //foreach (var contact in db.Contact)
+                //{
+                //    (contact.Name);
+                //}
+            //}
+
         }
     }
 }
