@@ -54,6 +54,8 @@ namespace DatabaserInlamningsuppgift1
         {
             using (var db = new ContactList())
             {
+                if (lboContacts.SelectedItem != null)
+                {
                     var c = ((Contact)lboContacts.SelectedItem);
                     txtName.Text = c.Name;
                     txtStreetAddress.Text = c.Address;
@@ -62,7 +64,8 @@ namespace DatabaserInlamningsuppgift1
                     txtPhone.Text = c.Phone;
                     txtEmail.Text = c.Email;
                     dtpDateOfBirth.Value = c.Birthday;
-                    //MessageBox.Show(c.Name + "\n" + c.Address + "\n" + c.ZipCode + "\n" + c.City + "\n" + c.Phone + "\n" +  c.Email + "\n" + c.Birthday);    
+                    //MessageBox.Show(c.Name + "\n" + c.Address + "\n" + c.ZipCode + "\n" + c.City + "\n" + c.Phone + "\n" +  c.Email + "\n" + c.Birthday);
+                }    
             }
         }
 
@@ -71,16 +74,19 @@ namespace DatabaserInlamningsuppgift1
 
             using (var db = new ContactList())
             {
-                var c = ((Contact)lboContacts.SelectedItem);
-                db.Contact.Attach(c);
-                db.Contact.Remove(c);
-                db.SaveChanges();
-
-                lboContacts.Items.Clear();
-
-                foreach (var contact in db.Contact)
+                if (lboContacts.SelectedItem != null)
                 {
-                    lboContacts.Items.Add(contact);
+                    var c = ((Contact)lboContacts.SelectedItem);
+                    db.Contact.Attach(c);
+                    db.Contact.Remove(c);
+                    db.SaveChanges();
+
+                    lboContacts.Items.Clear();
+
+                    foreach (var contact in db.Contact)
+                    {
+                        lboContacts.Items.Add(contact);
+                    }
                 }
             }        
         }
@@ -109,23 +115,26 @@ namespace DatabaserInlamningsuppgift1
         {
             using (var db = new ContactList())
             {
-                var c = ((Contact)lboContacts.SelectedItem);
-                var f = db.Contact.First(i => i.ContactId == c.ContactId);
-                f.Name = txtName.Text;
-                f.Address = txtStreetAddress.Text;
-                f.ZipCode = txtZipCode.Text;
-                f.City = txtCity.Text;
-                f.Phone = txtPhone.Text;
-                f.Email = txtEmail.Text;
-                f.Birthday = dtpDateOfBirth.Value;
-
-                db.SaveChanges();
-
-                lboContacts.Items.Clear();
-
-                foreach (var contact in db.Contact)
+                if (lboContacts.SelectedItem != null)
                 {
-                    lboContacts.Items.Add(contact);
+                    var c = ((Contact)lboContacts.SelectedItem);
+                    var f = db.Contact.First(i => i.ContactId == c.ContactId);
+                    f.Name = txtName.Text;
+                    f.Address = txtStreetAddress.Text;
+                    f.ZipCode = txtZipCode.Text;
+                    f.City = txtCity.Text;
+                    f.Phone = txtPhone.Text;
+                    f.Email = txtEmail.Text;
+                    f.Birthday = dtpDateOfBirth.Value;
+
+                    db.SaveChanges();
+
+                    lboContacts.Items.Clear();
+
+                    foreach (var contact in db.Contact)
+                    {
+                        lboContacts.Items.Add(contact);
+                    }
                 }
             }
         }
