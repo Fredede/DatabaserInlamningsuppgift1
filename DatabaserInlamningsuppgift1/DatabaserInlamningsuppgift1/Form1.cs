@@ -158,6 +158,18 @@ namespace DatabaserInlamningsuppgift1
                 }
             }
         }
+
+        private void cmdShowAll_Click(object sender, EventArgs e)
+        {
+            lboContacts.Items.Clear();
+            using (var db = new ContactList())
+            {
+                foreach (var contact in db.Contact)
+                {
+                    lboContacts.Items.Add(contact);
+                }
+            }
+        }
     }
 }
 

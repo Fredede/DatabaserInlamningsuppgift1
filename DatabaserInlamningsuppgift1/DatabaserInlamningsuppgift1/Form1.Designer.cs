@@ -49,6 +49,7 @@
             this.cmdDelete = new System.Windows.Forms.Button();
             this.cmdSearch = new System.Windows.Forms.Button();
             this.cmdClear = new System.Windows.Forms.Button();
+            this.cmdShowAll = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtName
@@ -230,11 +231,22 @@
             this.cmdClear.UseVisualStyleBackColor = true;
             this.cmdClear.Click += new System.EventHandler(this.cmdClear_Click);
             // 
+            // cmdShowAll
+            // 
+            this.cmdShowAll.Location = new System.Drawing.Point(478, 12);
+            this.cmdShowAll.Name = "cmdShowAll";
+            this.cmdShowAll.Size = new System.Drawing.Size(75, 23);
+            this.cmdShowAll.TabIndex = 21;
+            this.cmdShowAll.Text = "Show all";
+            this.cmdShowAll.UseVisualStyleBackColor = true;
+            this.cmdShowAll.Click += new System.EventHandler(this.cmdShowAll_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 516);
+            this.Controls.Add(this.cmdShowAll);
             this.Controls.Add(this.cmdClear);
             this.Controls.Add(this.cmdSearch);
             this.Controls.Add(this.cmdDelete);
@@ -286,6 +298,7 @@
         private System.Windows.Forms.Button cmdDelete;
         private System.Windows.Forms.Button cmdSearch;
         private System.Windows.Forms.Button cmdClear;
+        private System.Windows.Forms.Button cmdShowAll;
     }
 }
 
