@@ -144,9 +144,10 @@ namespace DatabaserInlamningsuppgift1
             using (var db = new ContactList())
             {
 
-                string name = txtSearch.Text;
+                string search = txtSearch.Text;
                 var o = from cont in db.Contact
-                        where cont.Name.Contains(name)
+                        where (cont.Name.Contains(search) || cont.Address.Contains(search) || cont.Phone.Contains(search) || 
+                               cont.ZipCode.Contains(search) || cont.Email.Contains(search) || cont.City.Contains(search))
                         select cont;
 
                 lboContacts.Items.Clear();
